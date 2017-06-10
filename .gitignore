@@ -2,6 +2,5 @@ doc
 .idea
 .cache
 .resizephoto
-Docker/
 .coverage
 .coveragerc
