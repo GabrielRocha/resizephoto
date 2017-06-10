@@ -1,0 +1,5 @@
+pytest
+pymodm
+Pillow
+asyncio
+aiohttp
