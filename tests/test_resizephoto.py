@@ -1,4 +1,4 @@
-from resizephoto import read_json, resize, generate_thumbnail, read_images
+from resizephoto import read_json, resize, generate_thumbnail, store_images
 from settings import URL, DATABASE_TEST as DATABASE
 from io import BufferedReader, BytesIO
 from PIL import Image as ImagePL
@@ -63,6 +63,6 @@ async def test_image_in_db(size, clear):
     assert getattr(Image.objects.first(), size).image.tobytes() == image.tobytes()
 
 
-def test_read_images(clear):
-    read_images(URL)
+def test_store_images(clear):
+    store_images()
     assert Image.objects.count() == 10

@@ -17,9 +17,9 @@ def read_json(url):
         raise ValueError("Invalid Json")
 
 
-def read_images(url):
+def store_images():
     loop = asyncio.get_event_loop()
-    json_images = read_json(url)
+    json_images = read_json(URL)
     tasks = [asyncio.ensure_future(generate_thumbnail(image['url']))
              for image in json_images.get('images', [])]
     wait = asyncio.wait(tasks)
@@ -47,4 +47,4 @@ async def generate_thumbnail(url):
 
 
 if __name__ == "__main__":
-    read_images(URL)
+    store_images()
