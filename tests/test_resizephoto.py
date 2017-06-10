@@ -1,21 +1,13 @@
 from resizephoto import read_json, resize, generate_thumbnail, store_images
-from settings import URL, DATABASE_TEST as DATABASE
+from settings import URL
 from io import BufferedReader, BytesIO
 from PIL import Image as ImagePL
 from models import Image
-from pymodm import connect
 import pytest
 import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-connect('mongodb://{}:{}/{}'.format(DATABASE['host'],
-                                    DATABASE['port'],
-                                    DATABASE['name']))
-
-@pytest.fixture
-def clear():
-    Image.objects.delete()
 
 def test_json_contains_key_images():
     assert "images" in read_json(URL)

@@ -3,3 +3,6 @@ pymodm
 Pillow
 asyncio
 aiohttp
+flask
+Flask-Cache
+pytest-flask

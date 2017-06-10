@@ -6,23 +6,23 @@ Finally, write a Webservice endpoint, which should use a non-relational database
 
 ### Dev
 Install Libs
-```
+```shell
 $ pip install -r requirements.txt
 ```
 
 Create Mongodb Docker Image
-```
+```shell
 $ docker build Docker/mongodb -t mongodb
 ```
 
 Run Docker
-```
+```shell
 $ docker run -ti -p 27017:27017 mongodb
 ```
 
 
 ### Test
-```
+```shell
 $ pytest  --cov-report term-missing --cov . -W ignore --cov-config .coveragerc
 ```
 
@@ -37,5 +37,12 @@ Run the method store_images
 ```python
 from resizephoto import store_images
 store_images()
+```
+
+### Webservice
+The webservice will return a json with url of image sizes and original image 
+Run webservice. 
+```python
+$ python app.py
 ```
 
