@@ -7,7 +7,7 @@ import flask
 
 
 app = flask.Flask(__name__)
-cache = Cache(app,config={'CACHE_TYPE': 'simple'})
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 
 @cache.cached(timeout=360)
@@ -16,7 +16,7 @@ def index():
     images = []
     for image in Image.objects.all():
         image_name = image.url.split("/")[-1]
-        image_sizes = {field:"/{}/{}".format(field, image_name)
+        image_sizes = {field: "/{}/{}".format(field, image_name)
                        for field in image._data
                        if isinstance(getattr(image, field), files.ImageFieldFile)}
         image_fields = {"url": image.url}
