@@ -36,7 +36,7 @@ def get_field(field, name):
         tmp.seek(0)
         return flask.send_file(tmp, mimetype="image/jpeg")
     except:
-        return flask.jsonify({"error":"404"})
+        return flask.jsonify({"error": "404"})
 
 
 if __name__ == "__main__":
